@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+		<!-- 推荐使用 -->
+		<!-- <properties resource="jdbc.properties" />-->
+			<properties>
+				<property name="jdbc.driverClassName" value="com.mysql.jdbc.Driver" />
+				<property name="jdbc.url" value="jdbc:mysql://localhost:3306/db_mybatis" />
+				<property name="jdbc.username" value="root" />
+				<property name="jdbc.password" value="123456" />
+			</properties>
+		<typeAliases>
+		<!-- <typeAlias alias="Student" type="com.lc.model.Student"/> -->
+		<!-- 推荐使用 -->
+		<package name="com.lc.model" />
+		</typeAliases>
+		<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+		<environment id="test">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+		</environments>
+	<mappers>
+		<!-- <mapper resource="com/lc/mappers/StudentMapper.xml" /> -->
+		<!-- <mapper class="com.lc.mappers.StudentMapper" /> -->
+		<!-- 推荐使用-->
+		<package name="com.lc.mappers" />
+	</mappers>
+</configuration>

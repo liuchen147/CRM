@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jquery-easyui-1.3.3/jquery.edatagrid.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/common.js"></script>
+
+<script type="text/javascript">
+//页面加载完，给各个控件赋值
+$(function(){
+	$("#createTime").val(getCurrentDate());
+		
+		
+	});
+	
+function resetValue(){
+	$("#serveType").combobox("setValue","");
+	$("#customer").val("");
+	$("#overview").val("");
+	$("#servicerequest").val("");
+}	
+function saveCustomerService(){
+	var url="${pageContext.request.contextPath}/customerService/save.do";
+	$("#fm").form("submit",{
+		url:url,
+		onSubmit:function(){
+			
+			//所有数据填充完毕，最后在一次验证表单
+			return $(this).form("validate");
+		},
+		success:function(result){
+			var result = eval('('+result+')');
+			if(result.success){
+				$.messager.alert("系统提示","保存成功！");
+				//重置属性
+				resetValue();
+				
+			}else{
+				$.messager.alert("系统提示","保存失败！");
+				return;
+				
+			}
+		}
+	});
+}
+
+</script>
+
+</head>
+<body style="margin:15px">
+
+	<div id="p" title="客户服务创建" class="easyui-panel" style="width:600px; height:350px; padding: 10px; margin-bottom: 20px;" >
+       <form id="fm" method="post">
+       <table cellspacing="8px">
+			<tr>
+				<td>服务类型：</td>
+				<td><input class="easyui-combobox"  id="serveType" name="serveType" editable="false" panelHeight="auto" valueField="dataDicValue"  textField="dataDicValue" url="${pageContext.request.contextPath}/dataDic/dataDicComboList.do?dataDicName=服务类型"/>&nbsp;<font color="red">*</font></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>客户：</td>
+				<td><input type="text" id="customer" name="customer" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+			</tr>
+			<tr>
+			  <td>概要:</td>
+			  <td colspan="4"><input type="text" id="overview" style="width:420px"  name="overview" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+			
+			</tr>
+			<tr>
+			  <td>服务请求：</td>
+			  <td colspan="4"><textarea rows="5" cols="49" id="servicerequest" name="servicerequest" class="easyui-validatebox" required="true"></textarea>&nbsp;<font color="red">*</font></td>
+			
+			</tr>
+			 <tr>
+					<td>创建人：</td>
+					<td>
+					
+					<input type="hidden"  name="state" value="新创建"/>
+					<input type="text" id="createPeople" name="createPeople" value="${currentUser.trueName }"/>
+					</td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>创建时间：</td>
+					<td><input type="text" id="createTime" name="createTime" readonly="readonly"/></td>
+				</tr>
+				<tr>
+				<td colspan="4"></td>
+				<td>
+					<a href="javascript:saveCustomerService()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+					<a href="javascript:resetValue()" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
+				</td>
+				</tr>
+		</table>
+       </form>
+		
+
+	</div>
+	
+
+</body>
+</html>

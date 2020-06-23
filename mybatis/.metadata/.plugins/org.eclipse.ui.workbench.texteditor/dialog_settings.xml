@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value=""/>
+		<item key="casesensitive" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="wholeword" value="false"/>
+		<list key="findhistory">
+			<item value="datagrid-pager pagination"/>
+			<item value="customerLoss"/>
+			<item value="CustomerLoss"/>
+			<item value="s_CustomerLoss"/>
+			<item value="Customer"/>
+			<item value="khno"/>
+			<item value="t_customer"/>
+			<item value="CusDevPlan"/>
+			<item value="CusDevPlanService"/>
+			<item value="cusDevPlan"/>
+			<item value="销售机会"/>
+			<item value="customerLossId"/>
+			<item value="saleChance"/>
+			<item value="customer"/>
+			<item value="reprieve"/>
+		</list>
+		<list key="replacehistory">
+			<item value="customerService"/>
+			<item value="CustomerService"/>
+			<item value="s_customerService"/>
+			<item value="Customer"/>
+			<item value="state"/>
+			<item value="t_customer_service"/>
+			<item value="CustomerServiceService"/>
+			<item value="customer"/>
+			<item value="客户流失基本"/>
+			<item value="客户流失"/>
+			<item value="customerReprieve"/>
+			<item value="cus"/>
+			<item value="lossId"/>
+			<item value="customerLoss"/>
+			<item value="CustomerReprieve"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_WIDTH" value="356"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_X_ORIGIN" value="904"/>
+		<item key="DIALOG_Y_ORIGIN" value="279"/>
+	</section>
+</section>

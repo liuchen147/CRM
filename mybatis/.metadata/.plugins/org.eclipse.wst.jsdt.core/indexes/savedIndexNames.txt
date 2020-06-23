@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\学习\框架项目\学校项目\mybatis\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1089509603.index
+114738812.index
+2468447962.index
+1386438244.index
+1239109516.index
+3715962249.index
+831698565.index
